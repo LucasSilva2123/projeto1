@@ -15,7 +15,20 @@ O motor, a partir do momento que o código começou a rodar, já está funcionan
 Entretanto, o diferencial desse programa é a possibilidade de mudar o sentido do motor alternando o switch SW0 (ligado ao pino P2.0), que se encontra na parte inferior esquerda do EdSim51. Quando mudamos a direção do motor, duas coisas devem acontecer: primeiramente, o ponto decimal do Display de 7 segmentos deverá acender, indicando o sentido anti-horário de rotação; além disso, o contador de voltas deverá voltar a zero instantaneamente. Perfeito, sabendo dessas informações, já é possível testar e interagir com o programa no EdSim51.
 
 ![Sinalizações do programa no Edsim51](Edsim_Projeto1.png)
+## 🔌 Mapeamento de Hardware (Pinagem)
 
+Para o melhor entendimento do projeto no **EdSim51**, é interessante conhecer como os periféricos são conectados, o que pode ser visualizado na tabela abaixo:
+
+| Componente | Pino/Porta | Função |
+| :--- | :--- | :--- |
+| **Display 7 Segmentos** | `P1` | Saída de dados para os segmentos (Barramento) |
+| **Ponto Decimal (DP)** | `P1.7` | Indicador visual de sentido: Ligado (Anti-horário) / Desligado (Horário) |
+| **Chave Seletora (SW0)** | `P2.0` | Entrada de controle: Alterna o sentido de rotação e reseta o contador |
+| **Motor de Passo** | `P3.0` e `P3.1` | Sinais de controle de fase para o motor |
+| **Habilitação do Display** | `P3.4` | Bit de controle para ativar o display de 7 segmentos |
+| **Contador de Pulsos** | `T1 (P3.5)` | Entrada do Timer 1 para contagem de pulsos externos do motor |
+
+---
 ## 🧠 Lógica de Programação
 
 A estrutura do código foi desenvolvida de forma modular, utilizando interrupções para garantir que a contagem de voltas seja precisa e independente do fluxo principal de verificação de periféricos.
@@ -49,6 +62,7 @@ O controle do sistema baseia-se em dois elementos principais:
 Abaixo, apresentamos o fluxo lógico do programa para melhor visualização:
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'edgeColor': '#3262a1' }}}%%
 graph LR
     A[Evento Externo/Pulso] --> B{Timer 1<br/>Contador}
     B -->|Incremento| C[Registrador R0<br/>Voltas]
