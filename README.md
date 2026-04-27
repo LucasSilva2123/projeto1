@@ -3,7 +3,7 @@ Contador de voltas e sentido de rotação para motor de passo em Assembly (8051)
 
 Integrantes: 
 * **Lucas Manoel Freitas da Silva (15471884)** 
-* **Gabriel Suerdieck Nardelli(15453960)**
+* **Gabriel Suerdieck Nardelli (15453960)**
 
 Docente:
 * **Pedro de Oliveira de Conceição Junior**
