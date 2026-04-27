@@ -61,14 +61,17 @@ O controle do sistema baseia-se em dois elementos principais:
 ### 🗺️ Fluxograma do Sistema
 Abaixo, apresentamos o fluxo lógico do programa para melhor visualização:
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff', 'edgeColor': '#3262a1' }}}%%
 graph LR
-    A[Evento Externo/Pulso] --> B{Timer 1<br/>Contador}
+    %% Definição de Estilos
+    classDef default fill:#fff,stroke:#333,stroke-width:2px,color:#000;
+    classDef decisao fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000;
+    classDef destaque fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000;
+
+    A[Evento Externo/Pulso]:::destaque --> B{Timer 1<br/>Contador}:::decisao
     B -->|Incremento| C[Registrador R0<br/>Voltas]
     C --> D[Tabela de Segmentos]
-    D --> E[Display P1]
+    D --> E[Display P1]:::destaque
     
-    F[Chave P2.0] -->|Inverte| G[Flag F0<br/>Sentido]
+    F[Chave P2.0]:::destaque -->|Inverte| G[Flag F0<br/>Sentido]:::decisao
     G -->|Ponto Decimal| E
-    G -->|Sinais de Controle| H[Motor de Passo]
+    G -->|Sinais de Controle| H[Motor de Passo]:::destaque
