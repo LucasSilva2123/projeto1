@@ -39,8 +39,9 @@ O controle do sistema baseia-se em dois elementos principais:
 * **`LOOP_TIMER` (ISR):** Rotina de interrupção que incrementa `R0` a cada pulso detectado. Ao atingir 10 voltas, a sub-rotina reinicia a contagem.
 
 ### 4. Controle do Motor de Passo
-Embora o acionamento das bobinas seja gerenciado pelo hardware do Edsim51, o software controla a direção através dos pinos `P3.0` e `P3.1`. A inversão lógica desses pinos altera a sequência de pulsos enviada ao motor, resultando na inversão da rotação física.
+   Embora o acionamento das bobinas seja gerenciado pelo hardware do Edsim51, o software controla a direção através dos pinos `P3.0` e `P3.1`. A inversão lógica desses pinos altera a sequência de pulsos enviada ao motor, resultando na inversão da rotação física.
   A tabela verdade a seguir mostra a lógica de inversão do motor:
+
 ![Tabela verdade de acionamento do motor](motor.png)
 ---
 
